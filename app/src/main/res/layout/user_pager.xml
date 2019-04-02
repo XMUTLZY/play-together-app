@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/user_pager_under"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/user_pager_under_under"
+            android:background="#72C5BB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="visible"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/user_pager_under_login"
+                android:background="@drawable/circular"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text="登录"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <!-- 头像、手机号 -->
+        <LinearLayout
+            android:id="@+id/user_pager_hide"
+            android:background="#72C5BB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:visibility="gone"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/user_pager_hide_button"
+                android:background="@mipmap/icon"
+                android:textSize="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:text=""
+                android:layout_width="80dp"
+                android:layout_height="80dp" />
+            <TextView
+                android:id="@+id/text_hide"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="手机号"/>
+        </LinearLayout>
+        <!-- 分界线 -->
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="#E2E2E2"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <RadioButton
+                    android:drawableTop="@drawable/collect"
+                    style="@style/user_pager_up_bottom"
+                    android:text="我的收藏"/>
+                <RadioButton
+                    android:drawableTop="@drawable/record"
+                    style="@style/user_pager_up_bottom"
+                    android:text="约玩记录"/>
+                <RadioButton
+                    android:drawableTop="@drawable/good"
+                    style="@style/user_pager_up_bottom"
+                    android:text="我的点赞"/>
+                <RadioButton
+                    android:drawableTop="@drawable/history"
+                    style="@style/user_pager_up_bottom"
+                    android:text="浏览历史" />
+            </RadioGroup>
+        </LinearLayout>
+
+    </LinearLayout>
+    <!-- 分界线 -->
+    <ImageView
+        android:layout_marginTop="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#E2E2E2"
+        />
+    <LinearLayout
+        android:id="@+id/user_pager_bottom"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2">
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RadioButton
+                style="@style/user_pager_bottom"
+                android:drawableLeft="@drawable/user_release"
+                android:text="我的发布" />
+            <!-- 分界线 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#E2E2E2"
+                />
+            <RadioButton
+                style="@style/user_pager_bottom"
+                android:drawableLeft="@drawable/user_friend"
+                android:text="我的好友" />
+            <!-- 分界线 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#E2E2E2"
+                />
+            <RadioButton
+                style="@style/user_pager_bottom"
+                android:drawableLeft="@drawable/user_safe"
+                android:text="安全中心" />
+            <!-- 分界线 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#E2E2E2"
+                />
+            <RadioButton
+                style="@style/user_pager_bottom"
+                android:drawableLeft="@drawable/user_headset"
+                android:text="客服中心" />
+            <!-- 分界线 -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="#E2E2E2"
+                />
+            <RadioButton
+                android:id="@+id/logout"
+                style="@style/user_pager_bottom"
+                android:drawableLeft="@drawable/user_set"
+                android:text="退出登录" />
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>
