@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:background="#FFEB3B"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_option"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:src="@drawable/ic_option" />
+
+            <RelativeLayout
+                android:id="@+id/layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:background="#ffffff">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:drawableLeft="@drawable/comui_search_small"
+                    android:drawablePadding="4dp"
+                    android:gravity="center"
+                    android:paddingLeft="8dp"
+                    android:text="Search" />
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/iv_qr"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:src="@drawable/ic_qr" />
+        </LinearLayout>
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.youth.banner.Banner
+                android:id="@+id/banner"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#ffffff">
+                <TextView
+                    android:drawableLeft="@drawable/user_release"
+                    android:text="标题"
+                    android:textStyle="bold"
+                    android:textSize="22sp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp" />
+                <!-- 分界线 -->
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="#E2E1E1"
+                    />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+                    <Button
+                        android:drawableLeft="@mipmap/ic_launcher"
+                        android:text="测试标题"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="40dp"
+                        android:background="#ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:drawableLeft="@mipmap/ic_launcher"
+                        android:text="测试标题"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="40dp"
+                        android:background="#ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+                    <Button
+                        android:drawableLeft="@mipmap/ic_launcher"
+                        android:text="测试标题"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="40dp"
+                        android:background="#ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:drawableLeft="@mipmap/ic_launcher"
+                        android:text="测试标题"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="40dp"
+                        android:background="#ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+                    <Button
+                        android:drawableLeft="@mipmap/ic_launcher"
+                        android:text="测试标题"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="40dp"
+                        android:background="#ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <Button
+                        android:drawableLeft="@mipmap/ic_launcher"
+                        android:text="测试标题"
+                        android:textSize="20sp"
+                        android:layout_marginLeft="40dp"
+                        android:background="#ffffff"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
+            <!-- 分界线 -->
+            <ImageView
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:background="#E2E1E1"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioGroup
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+                    <RadioButton
+                        android:id="@+id/title_button1"
+                        style="@style/home_pager_title"
+                        android:text="新鲜的"/>
+                    <RadioButton
+                        android:id="@+id/title_button2"
+                        android:text="附近的"
+                        style="@style/home_pager_title" />
+                    <RadioButton
+                        android:id="@+id/title_button3"
+                        android:text="男生"
+                        style="@style/home_pager_title" />
+                    <RadioButton
+                        android:id="@+id/title_button4"
+                        android:text="女生"
+                        style="@style/home_pager_title" />
+                </RadioGroup>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

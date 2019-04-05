@@ -9,8 +9,7 @@
         android:id="@+id/view_pager"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_weight="1">
-    </com.example.xmut_news.view.NoScrollViewPager>
+        android:layout_weight="1"></com.example.xmut_news.view.NoScrollViewPager>
 
     <RadioGroup
         android:id="@+id/radio_group"
@@ -23,40 +22,35 @@
         <RadioButton
             android:id="@+id/radio_group_button1"
             style="@style/BottomTabStyle"
-            android:drawableTop="@drawable/button_group_bottom_selector1"
-            android:checked="true"
+            android:drawableTop="@drawable/ic_home"
             android:text="首页"
             android:textColor="@color/txt_tab_selector" />
 
         <RadioButton
             android:id="@+id/radio_group_button2"
             style="@style/BottomTabStyle"
-            android:drawableTop="@drawable/button_group_bottom_selector2"
-            android:checked="true"
+            android:drawableTop="@drawable/ic_message"
             android:text="消息"
             android:textColor="@color/txt_tab_selector" />
 
         <RadioButton
             android:id="@+id/radio_group_button3"
             style="@style/BottomTabStyle"
-            android:drawableTop="@drawable/button_group_bottom_selector3"
-            android:checked="true"
+            android:drawableTop="@drawable/ic_issue"
             android:text="发布"
             android:textColor="@color/txt_tab_selector" />
 
         <RadioButton
             android:id="@+id/radio_group_button4"
             style="@style/BottomTabStyle"
-            android:drawableTop="@drawable/button_group_bottom_selector4"
-            android:checked="true"
+            android:drawableTop="@drawable/ic_school"
             android:text="校圈"
             android:textColor="@color/txt_tab_selector" />
 
         <RadioButton
             android:id="@+id/radio_group_button5"
             style="@style/BottomTabStyle"
-            android:drawableTop="@drawable/button_group_bottom_selector5"
-            android:checked="true"
+            android:drawableTop="@drawable/ic_my"
             android:text="我的"
             android:textColor="@color/txt_tab_selector" />
 

@@ -27,6 +27,7 @@ import com.example.xmut_news.pager.HomePager;
 import com.example.xmut_news.pager.UserPager;
 import com.example.xmut_news.pojo.User;
 import com.example.xmut_news.view.NoScrollViewPager;
+import com.example.xmut_news.view.PublishDialog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,8 @@ public class ContextFragment extends BaseFragment {
     private String phone,password,name,image,school,sex,major;
     private NoScrollViewPager view_pager;
     private RadioGroup radio_group;
+    private Button radio_group_button3;
+    private PublishDialog publishDialog;
     //存放5个页面
     private List<BasePager> pagerList = new ArrayList<BasePager>();
     @Override
@@ -45,6 +48,7 @@ public class ContextFragment extends BaseFragment {
         //实例化
         view_pager = view.findViewById(R.id.view_pager);
         radio_group = view.findViewById(R.id.radio_group);
+        radio_group_button3 = view.findViewById(R.id.radio_group_button3);
         return view;
     }
 
@@ -110,9 +114,9 @@ public class ContextFragment extends BaseFragment {
                         isLogin();
                         break;
                     case R.id.radio_group_button3:
-                        view_pager.setCurrentItem(2,false);
                         //判断用户是否已经登录
                         isLogin();
+                        click();
                         break;
                     case R.id.radio_group_button4:
                         view_pager.setCurrentItem(3,false);
@@ -206,5 +210,34 @@ public class ContextFragment extends BaseFragment {
         user.setSex(sex);
         user.setMajor(major);
         return user;
+    }
+    /*
+    * 发布事件
+    * */
+    private void click(){
+        if (publishDialog==null){
+            publishDialog=new PublishDialog(context);
+            publishDialog.setFabuClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "发布", Toast.LENGTH_SHORT).show();
+                }
+            });
+            publishDialog.setHuishouClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "回收", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+            publishDialog.setPingguClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "评估", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }
+        publishDialog.show();
     }
 }
