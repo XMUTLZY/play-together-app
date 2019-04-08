@@ -243,7 +243,7 @@ public class PhotoActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Throwable throwable, String s) {
-                Toast.makeText(PhotoActivity.this,"信息发送失败", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(PhotoActivity.this,"信息发送失败", Toast.LENGTH_SHORT).show();
             }
         });
     }
