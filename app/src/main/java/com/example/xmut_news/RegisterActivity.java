@@ -22,16 +22,20 @@ import org.xutils.x;
 public class RegisterActivity extends BaseActivity {
 
     RequestParams params;//存放请求数据
-    private String phone,password,password2,sex,school;
+    private String phone,password,password2,sex,school,name,major;
     //注册请求发送地址
     //private String url = "http://www.myweb-api.work:8080/android_PlayAround_ssm/addUser";//阿里云服务器
-    private String url = "http://jp2wmy.natappfree.cc/android_PlayAround_ssm/addUser";//本地
+    private String url = "http://7ucfxc.natappfree.cc/android_PlayAround_ssm/addUser";//本地
     @ViewInject(R.id.et_user_name)
     private EditText et_user_name;
     @ViewInject(R.id.et_psw)
     private EditText et_psw;
     @ViewInject(R.id.et_psw_again)
     private EditText et_psw_again;
+    @ViewInject(R.id.et_user_major)
+    private EditText et_user_major;
+    @ViewInject(R.id.et_user_trullyname)
+    private EditText et_user_trullyname;
     @ViewInject(R.id.SexRadio)
     private RadioGroup sexRadio;
     @ViewInject(R.id.mainRegisterRdBtnFemale)
@@ -57,8 +61,10 @@ public class RegisterActivity extends BaseActivity {
                 password = et_psw.getText().toString().trim();
                 password2 = et_psw_again.getText().toString().trim();
                 school = et_user_school.getText().toString().trim();
+                name = et_user_trullyname.getText().toString().trim();
+                major = et_user_major.getText().toString().trim();
                 //判断注册信息是否满足
-                if(phone.equals("")||password.equals("")||password2.equals("")||school.equals("")||sex.equals("")){
+                if(phone.equals("")||password.equals("")||password2.equals("")||school.equals("")||sex.equals("")||name.equals("")||major.equals("")){
                     Toast.makeText(RegisterActivity.this, "输入的信息不完整", Toast.LENGTH_SHORT).show();
                 }
                 else if(!password.equals(password2)){
@@ -69,6 +75,8 @@ public class RegisterActivity extends BaseActivity {
                     params.put("password",password);
                     params.put("sex",sex);
                     params.put("school",school);
+                    params.put("name",name);
+                    params.put("major",major);
                     //注册用户
                     addUser(params);
                 }

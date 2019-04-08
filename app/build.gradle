@@ -34,4 +34,5 @@ dependencies {
     implementation group: 'com.alibaba', name: 'fastjson', version: '1.2.12'
     implementation 'com.youth.banner:banner:1.4.10'
     implementation 'com.github.bumptech.glide:glide:4.3.1'
+    implementation 'com.contrarywind:Android-PickerView:3.2.7'
 }

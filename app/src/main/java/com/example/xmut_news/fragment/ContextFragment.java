@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import com.example.xmut_news.LoginActivity;
 import com.example.xmut_news.R;
-import com.example.xmut_news.base.BaseActivity;
+import com.example.xmut_news.PhotoActivity;
 import com.example.xmut_news.base.BaseFragment;
 import com.example.xmut_news.base.BasePager;
 import com.example.xmut_news.pager.MessagePager;
@@ -115,8 +115,18 @@ public class ContextFragment extends BaseFragment {
                         break;
                     case R.id.radio_group_button3:
                         //判断用户是否已经登录
-                        isLogin();
-                        click();
+                        //查看本地是否用用于的登录信息
+                        SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                        phone = sp.getString("phone","");
+                        if(TextUtils.isEmpty(phone)){
+                            //本地没有保存过用户信息，给出提示：登录操作
+                            doLogin();
+                        }else{
+                            //获取用户数据
+                            User user = getUser();
+                            pagerList.get(4).getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.GONE);
+                            click();
+                        }
                         break;
                     case R.id.radio_group_button4:
                         view_pager.setCurrentItem(3,false);
@@ -173,7 +183,7 @@ public class ContextFragment extends BaseFragment {
             Toast.makeText(context,phone , Toast.LENGTH_SHORT).show();
             //获取用户数据
             User user = getUser();
-            pagerList.get(4).getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.INVISIBLE);
+            pagerList.get(4).getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.GONE);
         }
     }
     /*
@@ -221,12 +231,14 @@ public class ContextFragment extends BaseFragment {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(context, "发布", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, PhotoActivity.class);
+                    startActivity(intent);
                 }
             });
             publishDialog.setHuishouClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, "回收", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(context, "添加好友", Toast.LENGTH_SHORT).show();
 
                 }
             });
