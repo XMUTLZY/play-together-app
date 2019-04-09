@@ -25,7 +25,7 @@ public class RegisterActivity extends BaseActivity {
     private String phone,password,password2,sex,school,name,major;
     //注册请求发送地址
     //private String url = "http://www.myweb-api.work:8080/android_PlayAround_ssm/addUser";//阿里云服务器
-    private String url = "http://7ucfxc.natappfree.cc/android_PlayAround_ssm/addUser";//本地
+    private String url = "http://7qvjkf.natappfree.cc/android_PlayAround_ssm/addUser";//本地
     @ViewInject(R.id.et_user_name)
     private EditText et_user_name;
     @ViewInject(R.id.et_psw)
