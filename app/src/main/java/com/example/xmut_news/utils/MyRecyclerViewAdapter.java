@@ -1,6 +1,7 @@
 package com.example.xmut_news.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
@@ -9,18 +10,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.xmut_news.R;
+import com.example.xmut_news.ReleaseShowActivity;
 import com.example.xmut_news.pojo.UserRelease;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.MyViewHolder>{
     private final Context context;
-    private List<UserRelease> datas = new ArrayList<>();
-
+    private List<UserRelease> datas;
+    private int id = 0;
     public MyRecyclerViewAdapter(Context context, List<UserRelease> data) {
         this.context = context;
         this.datas = data;
@@ -41,8 +42,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         String phone = datas.get(i).getPhone();
         String imagePath = datas.get(i).getImage();
         myViewHolder.release_title.setText(title);
-        myViewHolder.release_name.setText(name);
-        myViewHolder.release_phone.setText(phone);
+        myViewHolder.release_name.setText("发布人:"+name);
+        myViewHolder.release_phone.setText("联系方式:"+phone);
         Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
         myViewHolder.release_image.setImageBitmap(bitmap);
     }
@@ -56,6 +57,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         private ImageView release_image;
         private TextView release_title,release_name,release_phone;
         private Button release_join,release_chat;
+        private LinearLayout item;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             release_image = itemView.findViewById(R.id.release_image);
@@ -64,6 +66,20 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             release_phone = itemView.findViewById(R.id.release_phone);
             release_join = itemView.findViewById(R.id.release_join);
             release_chat = itemView.findViewById(R.id.release_chat);
+            item = itemView.findViewById(R.id.item);
+            //设置item的监听器，用于监听查看详情事件
+            item.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, ReleaseShowActivity.class);
+                    id = datas.get(getLayoutPosition()).getId();
+                    UserRelease userRelease = new UserRelease();
+                    userRelease = datas.get(getLayoutPosition());
+                    intent.putExtra("userRelease",userRelease);
+                    intent.putExtra("id",id);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 }

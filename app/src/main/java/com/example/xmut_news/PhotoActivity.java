@@ -33,7 +33,7 @@ import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 public class PhotoActivity extends AppCompatActivity {
-    private String url = "http://7qvjkf.natappfree.cc/android_PlayAround_ssm/addUserRelease";//信息发布接口(本地)
+    private String url = "http://7wfnb5.natappfree.cc/android_PlayAround_ssm/addUserRelease";//信息发布接口(本地)
     private RequestParams params;//存放请求数据
     public static final int CHOOSE_PHOTO = 2;
     private String imagePath;//图片路径

@@ -22,7 +22,7 @@ import org.xutils.x;
 public class LoginActivity extends BaseActivity {
     //登录请求发送地址
     //private String url = "http://www.myweb-api.work:8080/android_PlayAround_ssm/loginCheck";//阿里云
-    private String url = "http://7qvjkf.natappfree.cc/android_PlayAround_ssm/loginCheck";//本地
+    private String url = "http://7wfnb5.natappfree.cc/android_PlayAround_ssm/loginCheck";//本地
     RequestParams params;
     @ViewInject(R.id.login_button)
     private Button login_button;

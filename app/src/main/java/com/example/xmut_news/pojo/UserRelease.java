@@ -1,6 +1,17 @@
 package com.example.xmut_news.pojo;
 
-public class UserRelease {
+import java.io.Serializable;
+
+public class UserRelease implements Serializable {
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    private int id;
     private String phone,name,title,detail,image,address,time;
 
     public String getPhone() {
@@ -62,7 +73,8 @@ public class UserRelease {
     @Override
     public String toString() {
         return "UserRelease{" +
-                "phone='" + phone + '\'' +
+                "id=" + id +
+                ", phone='" + phone + '\'' +
                 ", name='" + name + '\'' +
                 ", title='" + title + '\'' +
                 ", detail='" + detail + '\'' +
