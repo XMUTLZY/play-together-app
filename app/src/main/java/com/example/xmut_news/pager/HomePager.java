@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HomePager extends BasePager implements OnBannerListener {
-    private String url = "http://thuv9u.natappfree.cc/android_PlayAround_ssm/listUserRelease";
+    private String url = "http://ydpn88.natappfree.cc/android_PlayAround_ssm/listUserRelease";
     private Banner mBanner;
     private MyImageLoader mMyImageLoader;
     private ArrayList<Integer> imagePath;
