@@ -87,11 +87,6 @@
                     android:layout_height="wrap_content"
                     android:visibility="gone">
                 </android.support.v7.widget.RecyclerView>
-                <!--<com.example.xmut_news.view.NoScrollViewPager-->
-                    <!--android:id="@+id/view_pager"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content">-->
-                <!--</com.example.xmut_news.view.NoScrollViewPager>-->
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

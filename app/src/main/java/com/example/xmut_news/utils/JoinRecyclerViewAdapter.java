@@ -48,7 +48,7 @@ public class JoinRecyclerViewAdapter extends RecyclerView.Adapter<JoinRecyclerVi
         myViewHolder.release_title.setText(release_title);
         myViewHolder.release_name.setText("发布人:"+release_name);
         myViewHolder.release_phone.setText("联系方式:"+release_phone);
-        myViewHolder.release_time.setText("约见:"+release_time);
+        myViewHolder.release_time.setText("约见时间:"+release_time);
         myViewHolder.release_address.setText("约见地址:"+release_address);
         myViewHolder.state.setText("状态:"+state);
     }

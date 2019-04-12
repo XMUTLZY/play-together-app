@@ -34,6 +34,7 @@ public class UserPager extends BasePager {
                 context.startActivity(intent);
             }
         });
+        //查看我的发布并进行审核
         //添加登录按钮监听器
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
