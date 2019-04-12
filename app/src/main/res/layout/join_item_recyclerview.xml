@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="wrap_content"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="5dp">
-
     <LinearLayout
         android:id="@+id/item"
         android:background="#22000000"
         android:layout_width="match_parent"
         android:layout_height="240dp"
         android:orientation="horizontal">
-        <ImageView
-            android:padding="5dp"
-            android:layout_gravity="center"
-            android:id="@+id/release_image"
-            android:layout_width="230dp"
-            android:layout_height="230dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
             android:orientation="vertical">
             <TextView
                 android:padding="5dp"
@@ -45,25 +40,35 @@
                 android:text="联系方式"
                 android:textAllCaps="false"
                 android:textSize="20sp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-                <Button
-                    android:id="@+id/release_join"
-                    android:layout_marginTop="15dp"
-                    android:text="申请加入"
-                    android:background="#73C1E4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-                <Button
-                    android:id="@+id/release_chat"
-                    android:layout_marginTop="15dp"
-                    android:text="私聊他/她"
-                    android:background="#98DF45"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100"
+                android:id="@+id/release_address"
+                android:padding="5dp"
+                android:text="约见地址"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100"
+                android:id="@+id/release_time"
+                android:padding="5dp"
+                android:text="约见时间"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="100"
+                android:layout_marginTop="8dp"
+                android:id="@+id/state"
+                android:padding="5dp"
+                android:text="申请结果:"
+                android:textColor="#03A9F4"
+                android:textAllCaps="false"
+                android:textSize="25sp" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

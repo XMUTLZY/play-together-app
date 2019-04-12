@@ -30,8 +30,8 @@ public class ReleaseShowActivity extends AppCompatActivity {
     private ImageView image;
     private TextView title,name,detail,time,address,chat;
     private Button joinButton;
-    private String url = "http://ydpn88.natappfree.cc/android_PlayAround_ssm/addUserJoin";
-    private String url2 = "http://ydpn88.natappfree.cc/android_PlayAround_ssm/getUserJoin";
+    private String url = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/addUserJoin";
+    private String url2 = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/getUserJoin";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

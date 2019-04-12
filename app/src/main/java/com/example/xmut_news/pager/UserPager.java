@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.xmut_news.JoinRecordActivity;
 import com.example.xmut_news.LoginActivity;
 import com.example.xmut_news.R;
 import com.example.xmut_news.base.BasePager;
@@ -24,6 +25,15 @@ public class UserPager extends BasePager {
         view = view.inflate(context,R.layout.user_pager,null);
         //实例化登录按钮
         Button login_button = getRootView().findViewById(R.id.user_pager_under_login);
+        //查看活动申请记录
+        Button record = getRootView().findViewById(R.id.join_record);
+        record.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context,JoinRecordActivity.class);
+                context.startActivity(intent);
+            }
+        });
         //添加登录按钮监听器
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,35 +43,7 @@ public class UserPager extends BasePager {
                 context.startActivity(intent);
             }
         });
-        //查看是否有数据
-        SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
-        if(!sp.getString("phone","").isEmpty()){
-            //获取用户数据
-            User user = new User();
-            String phone = sp.getString("phone","");
-            String password = sp.getString("password","");
-            String name = sp.getString("name","");
-            String image = sp.getString("image","");
-            String sex = sp.getString("sex","");
-            String school = sp.getString("school","");
-            String major = sp.getString("major","");
-            user.setPhone(phone);
-            user.setName(name);
-            user.setPassword(password);
-            user.setImage(image);
-            user.setSchool(school);
-            user.setSex(sex);
-            user.setMajor(major);
-            //设置登录模块隐藏
-            getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.GONE);
-            //设置头像和手机号显示
-            getRootView().findViewById(R.id.user_pager_hide).setVisibility(View.VISIBLE);
-            //实例化组件
-            Button button = getRootView().findViewById(R.id.user_pager_hide_button);
-            TextView textView = getRootView().findViewById(R.id.text_hide);
-            //设置头像和手机号
-            textView.setText("手机号:"+ user.getPhone());
-        }
+        initData();
         //退出登录
         Button logout = getRootView().findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +73,34 @@ public class UserPager extends BasePager {
 
     @Override
     public void initData() {
-
+        //查看是否有数据
+        SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+        if(!sp.getString("phone","").isEmpty()){
+            //获取用户数据
+            User user = new User();
+            String phone = sp.getString("phone","");
+            String password = sp.getString("password","");
+            String name = sp.getString("name","");
+            String image = sp.getString("image","");
+            String sex = sp.getString("sex","");
+            String school = sp.getString("school","");
+            String major = sp.getString("major","");
+            user.setPhone(phone);
+            user.setName(name);
+            user.setPassword(password);
+            user.setImage(image);
+            user.setSchool(school);
+            user.setSex(sex);
+            user.setMajor(major);
+            //设置登录模块隐藏
+            getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.GONE);
+            //设置头像和手机号显示
+            getRootView().findViewById(R.id.user_pager_hide).setVisibility(View.VISIBLE);
+            //实例化组件
+            Button button = getRootView().findViewById(R.id.user_pager_hide_button);
+            TextView textView = getRootView().findViewById(R.id.text_hide);
+            //设置头像和手机号
+            textView.setText("手机号:"+ user.getPhone());
+        }
     }
 }

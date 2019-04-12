@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.xmut_news.R;
 import com.example.xmut_news.ReleaseShowActivity;
@@ -58,6 +59,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         private TextView release_title,release_name,release_phone;
         private Button release_join,release_chat;
         private LinearLayout item;
+        private UserRelease userRelease;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             release_image = itemView.findViewById(R.id.release_image);
@@ -71,13 +73,18 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             item.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, ReleaseShowActivity.class);
-                    id = datas.get(getLayoutPosition()).getId();
-                    UserRelease userRelease = new UserRelease();
+                    userRelease = new UserRelease();
                     userRelease = datas.get(getLayoutPosition());
+                    Intent intent = new Intent(context, ReleaseShowActivity.class);
                     intent.putExtra("userRelease",userRelease);
-                    intent.putExtra("id",id);
                     context.startActivity(intent);
+                }
+            });
+            //设置申请加入按钮的监听器
+            release_join.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(context, "建议你先查看详情哦！", Toast.LENGTH_SHORT).show();
                 }
             });
         }

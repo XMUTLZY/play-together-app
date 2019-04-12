@@ -15,6 +15,7 @@ public class AddPager extends BasePager {
     public View initView() {
         TextView textView = new TextView(context);
         textView.setText("发布");
+        textView.setTextSize(40);
         return textView;
     }
 

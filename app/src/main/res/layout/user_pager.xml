@@ -81,9 +81,10 @@
                     style="@style/user_pager_up_bottom"
                     android:text="我的收藏"/>
                 <RadioButton
+                    android:id="@+id/join_record"
                     android:drawableTop="@drawable/record"
                     style="@style/user_pager_up_bottom"
-                    android:text="约玩记录"/>
+                    android:text="申请记录"/>
                 <RadioButton
                     android:drawableTop="@drawable/good"
                     style="@style/user_pager_up_bottom"
