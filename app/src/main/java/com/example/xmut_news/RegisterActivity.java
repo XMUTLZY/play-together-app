@@ -10,12 +10,16 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.example.xmut_news.base.BaseActivity;
+import com.example.xmut_news.utils.MyProperUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.util.Properties;
+
 /*
 * 用户注册界面
 * */
@@ -25,7 +29,8 @@ public class RegisterActivity extends BaseActivity {
     private String phone,password,password2,sex,school,name,major;
     //注册请求发送地址
     //private String url = "http://www.myweb-api.work:8080/android_PlayAround_ssm/addUser";//阿里云服务器
-    private String url = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/addUser";//本地
+    private String url;//本地
+    private String url1;
     @ViewInject(R.id.et_user_name)
     private EditText et_user_name;
     @ViewInject(R.id.et_psw)
@@ -51,6 +56,9 @@ public class RegisterActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutID());
+        Properties properties = MyProperUtil.getProperties(this);
+        url1 = properties.getProperty("serverUrl");
+        url = url1 + "addUser";
         x.view().inject(RegisterActivity.this);
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override

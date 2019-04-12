@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.example.xmut_news.JoinRecordActivity;
 import com.example.xmut_news.LoginActivity;
 import com.example.xmut_news.R;
+import com.example.xmut_news.ShowMyReleaseActivity;
 import com.example.xmut_news.base.BasePager;
 import com.example.xmut_news.pojo.User;
 
@@ -35,6 +36,14 @@ public class UserPager extends BasePager {
             }
         });
         //查看我的发布并进行审核
+        Button my_release = getRootView().findViewById(R.id.my_release);
+        my_release.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShowMyReleaseActivity.class);
+                context.startActivity(intent);
+            }
+        });
         //添加登录按钮监听器
         login_button.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="170dp"
+    android:background="#22000000">
+        <RelativeLayout
+            android:id="@+id/item"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="1dp"
+                android:id="@+id/release_title"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="标题1"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textAllCaps="false"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/join_name"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="65dp"
+                android:text="申请人申请加入该活动"
+                android:textAllCaps="false"
+                android:textSize="20sp" />
+            <ImageView
+                android:layout_marginLeft="320dp"
+                android:background="@mipmap/icon"
+                android:id="@+id/join_image"
+                android:layout_marginTop="10dp"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+            <Button
+                android:id="@+id/btn_agree"
+                android:background="#61ADEB"
+                android:text="同意"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="105dp"
+                android:layout_marginLeft="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btn_reject"
+                android:background="#E9182A"
+                android:text="拒绝"
+                android:layout_marginLeft="240dp"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="105dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <ImageView
+                android:layout_marginTop="170dp"
+                android:layout_width="match_parent"
+                android:background="#ffffff"
+                android:layout_height="10dp" />
+        </RelativeLayout>
+</RelativeLayout>

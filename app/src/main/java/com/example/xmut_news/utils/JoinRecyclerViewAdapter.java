@@ -1,23 +1,13 @@
 package com.example.xmut_news.utils;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.example.xmut_news.R;
-import com.example.xmut_news.ReleaseShowActivity;
 import com.example.xmut_news.pojo.UserJoin;
-import com.example.xmut_news.pojo.UserRelease;
 import java.util.List;
 
 public class JoinRecyclerViewAdapter extends RecyclerView.Adapter<JoinRecyclerViewAdapter.MyViewHolder>{

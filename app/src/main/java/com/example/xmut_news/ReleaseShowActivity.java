@@ -18,9 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.xmut_news.pojo.UserRelease;
+import com.example.xmut_news.utils.MyProperUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+
+import java.util.Properties;
 
 /*
 * item详情页
@@ -30,13 +33,18 @@ public class ReleaseShowActivity extends AppCompatActivity {
     private ImageView image;
     private TextView title,name,detail,time,address,chat;
     private Button joinButton;
-    private String url = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/addUserJoin";
-    private String url2 = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/getUserJoin";
+    private String url;
+    private String url1;
+    private String url2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_release_show);
         getSupportActionBar().hide();
+        Properties properties = MyProperUtil.getProperties(this);
+        url1 = properties.getProperty("serverUrl");
+        url = url1 + "addUserJoin";
+        url2 = url1 + "getUserJoin";
         initData();
     }
     private void initData(){

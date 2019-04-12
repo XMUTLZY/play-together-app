@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.xmut_news.pojo.User;
 import com.alibaba.fastjson.JSON;
 import com.example.xmut_news.base.BaseActivity;
+import com.example.xmut_news.utils.MyProperUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -19,10 +20,13 @@ import com.loopj.android.http.RequestParams;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.Properties;
+
 public class LoginActivity extends BaseActivity {
     //登录请求发送地址
     //private String url = "http://www.myweb-api.work:8080/android_PlayAround_ssm/loginCheck";//阿里云
-    private String url = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/loginCheck";//本地
+    private String url1;
+    private String url;//本地
     RequestParams params;
     @ViewInject(R.id.login_button)
     private Button login_button;
@@ -36,6 +40,9 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutID());
+        Properties properties = MyProperUtil.getProperties(this);
+        url1 = properties.getProperty("serverUrl");
+        url = url1 + "loginCheck";
         x.view().inject(LoginActivity.this);
         //登录按钮点击事件
         login_button.setOnClickListener(new View.OnClickListener() {

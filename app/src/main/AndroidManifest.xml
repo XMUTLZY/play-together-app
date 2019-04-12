@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".JoinRecordActivity"></activity>
+        <activity android:name=".ShowMyReleaseActivity"></activity>
+        <activity android:name=".JoinRecordActivity" />
         <activity android:name=".ReleaseShowActivity" />
         <activity android:name=".PhotoActivity" />
         <activity android:name=".RegisterActivity" />

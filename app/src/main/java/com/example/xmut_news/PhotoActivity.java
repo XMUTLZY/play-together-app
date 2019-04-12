@@ -28,16 +28,19 @@ import android.widget.Toast;
 
 import com.example.xmut_news.pojo.UserRelease;
 import com.example.xmut_news.utils.DateTimePickDialogUtil;
+import com.example.xmut_news.utils.MyProperUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import java.util.Properties;
+
 public class PhotoActivity extends AppCompatActivity {
-    private String url = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/addUserRelease";//信息发布接口(本地)
+    private String url;//信息发布接口(本地)
     private RequestParams params;//存放请求数据
     public static final int CHOOSE_PHOTO = 2;
     private String imagePath;//图片路径
-    private String initTime = "2019年4月7日 14:44";//初始化时间
+    private String url1,initTime = "2019年4月7日 14:44";//初始化时间
     private String phone,name,title,detail,address,time;//发布信息的具体内容
     private EditText timeText,titleText,detailText,addressText;
     private ImageView picture;
@@ -48,6 +51,9 @@ public class PhotoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
         getSupportActionBar().hide();
+        Properties properties = MyProperUtil.getProperties(this);
+        url1 = properties.getProperty("serverUrl");
+        url = url1 + "addUserRelease";
         //实例化组件
         picture = findViewById(R.id.picture);
         timeText = findViewById(R.id.release_time);

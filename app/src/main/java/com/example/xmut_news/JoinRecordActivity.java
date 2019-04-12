@@ -12,12 +12,14 @@ import android.widget.RadioGroup;
 import com.alibaba.fastjson.JSONObject;
 import com.example.xmut_news.pojo.UserJoin;
 import com.example.xmut_news.utils.JoinRecyclerViewAdapter;
+import com.example.xmut_news.utils.MyProperUtil;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 /*
 * 活动申请记录情况
@@ -30,12 +32,15 @@ public class JoinRecordActivity extends AppCompatActivity {
     private List<UserJoin> noPassList = new ArrayList<>();
     private List<UserJoin> applicationList = new ArrayList<>();
     private List<UserJoin> passList = new ArrayList<>();
-    private String url = "http://i29kvi.natappfree.cc/android_PlayAround_ssm/getUserJoinAll";
+    private String url1,url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_record);
         getSupportActionBar().hide();
+        Properties properties = MyProperUtil.getProperties(this);
+        url1 = properties.getProperty("serverUrl");
+        url = url1 + "getUserJoinAll";
         initData();
         //设置默认选中首页
         radio_group.check(R.id.join_record_button1);

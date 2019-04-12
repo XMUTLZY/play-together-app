@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="46dp"
-        android:background="#FFEB3B"
+        android:background="#5AC1F0"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -36,7 +36,7 @@
                 android:drawablePadding="4dp"
                 android:gravity="center"
                 android:paddingLeft="8dp"
-                android:text="Search" />
+                android:text="搜索" />
         </RelativeLayout>
 
         <ImageView
@@ -60,7 +60,7 @@
             <com.youth.banner.Banner
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
+                android:layout_height="200dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -75,6 +75,7 @@
                     android:layout_height="60dp"
                     android:drawableLeft="@drawable/user_release"
                     android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
                     android:text="标题"
                     android:textSize="22sp"
                     android:textStyle="bold" />
@@ -97,7 +98,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:text="测试标题"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -106,7 +107,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:text="测试标题"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -122,7 +123,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:text="测试标题"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -131,7 +132,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:text="测试标题"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -147,7 +148,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:text="测试标题"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
 
                     <Button
                         android:layout_width="wrap_content"
@@ -156,7 +157,7 @@
                         android:background="#ffffff"
                         android:drawableLeft="@mipmap/ic_launcher"
                         android:text="测试标题"
-                        android:textSize="20sp" />
+                        android:textSize="17sp" />
                 </LinearLayout>
             </LinearLayout>
             <!-- 分界线 -->
@@ -171,6 +172,7 @@
                 android:layout_height="wrap_content">
 
                 <RadioGroup
+                    android:id="@+id/radio_group"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
                     android:orientation="horizontal">
@@ -178,21 +180,25 @@
                     <RadioButton
                         android:id="@+id/title_button1"
                         style="@style/home_pager_title"
+                        android:textColor="@color/txt_tab_selector"
                         android:text="新鲜的" />
 
                     <RadioButton
                         android:id="@+id/title_button2"
                         style="@style/home_pager_title"
+                        android:textColor="@color/txt_tab_selector"
                         android:text="附近的" />
 
                     <RadioButton
                         android:id="@+id/title_button3"
                         style="@style/home_pager_title"
+                        android:textColor="@color/txt_tab_selector"
                         android:text="男生" />
 
                     <RadioButton
                         android:id="@+id/title_button4"
                         style="@style/home_pager_title"
+                        android:textColor="@color/txt_tab_selector"
                         android:text="女生" />
                 </RadioGroup>
             </LinearLayout>
