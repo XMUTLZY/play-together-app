@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="66dp"
+        android:layout_height="45dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -79,7 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text=""
-                    android:textSize="20sp" />
+                    android:textSize="20dp" />
                 <TextView
                     android:id="@+id/release_time"
                     android:layout_margin="10dp"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textStyle="bold"
-                    android:textSize="20sp" />
+                    android:textSize="20dp" />
                 <TextView
                     android:id="@+id/release_address"
                     android:layout_margin="10dp"
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textStyle="bold"
-                    android:textSize="20sp" />
+                    android:textSize="20dp" />
                 <TextView
                     android:id="@+id/release_chat"
                     android:layout_margin="10dp"
@@ -103,7 +103,7 @@
                     android:layout_height="wrap_content"
                     android:text=""
                     android:textStyle="bold"
-                    android:textSize="20sp" />
+                    android:textSize="20dp" />
 
             </LinearLayout>
         </LinearLayout>
@@ -117,16 +117,14 @@
         <RadioButton
             android:id="@+id/release_button1"
             style="@style/BottomTabStyle"
-            android:drawableLeft="@drawable/ic_home"
-            android:text="点赞"
-            android:textColor="@color/txt_tab_selector" />
+            android:drawableLeft="@drawable/ic_heart"
+            android:text="点赞" />
 
         <RadioButton
             android:id="@+id/release_button2"
             style="@style/BottomTabStyle"
             android:drawableLeft="@drawable/ic_message"
-            android:text="私聊"
-            android:textColor="@color/txt_tab_selector" />
+            android:text="私聊" />
 
         <RadioButton
             android:id="@+id/release_button3"

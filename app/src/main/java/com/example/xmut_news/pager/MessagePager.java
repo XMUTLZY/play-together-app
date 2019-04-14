@@ -14,10 +14,13 @@ public class MessagePager extends BasePager {
     public View initView() {
         TextView textView = new TextView(context);
         textView.setText("消息");
+        textView.setTextSize(30);
+        textView.setGravity(1);
         return textView;
     }
 
     @Override
     public void initData() {
     }
+
 }

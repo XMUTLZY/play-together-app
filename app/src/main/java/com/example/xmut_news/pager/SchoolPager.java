@@ -14,6 +14,8 @@ public class SchoolPager extends BasePager {
     public View initView() {
         TextView textView = new TextView(context);
         textView.setText("校圈");
+        textView.setTextSize(30);
+        textView.setGravity(1);
         return textView;
     }
 

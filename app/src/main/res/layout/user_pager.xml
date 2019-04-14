@@ -15,7 +15,7 @@
 
         <LinearLayout
             android:id="@+id/user_pager_under_under"
-            android:background="#72C5BB"
+            android:background="#ffffff"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -35,7 +35,7 @@
         <!-- 头像、手机号 -->
         <LinearLayout
             android:id="@+id/user_pager_hide"
-            android:background="#72C5BB"
+            android:background="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -43,12 +43,13 @@
             android:orientation="vertical">
             <Button
                 android:id="@+id/user_pager_hide_button"
-                android:background="@mipmap/icon"
+                android:background="@drawable/list"
                 android:textSize="25dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="30dp"
                 android:textStyle="bold"
                 android:textColor="#ffffff"
+                android:src="@mipmap/icon"
                 android:text=""
                 android:layout_width="80dp"
                 android:layout_height="80dp" />
@@ -77,14 +78,14 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <RadioButton
-                    android:drawableTop="@drawable/collect"
+                    android:drawableTop="@drawable/user_release"
                     style="@style/user_pager_up_bottom"
-                    android:text="我的收藏"/>
+                    android:text="我的发布"/>
                 <RadioButton
                     android:id="@+id/join_record"
                     android:drawableTop="@drawable/record"
                     style="@style/user_pager_up_bottom"
-                    android:text="申请记录"/>
+                    android:text="我的申请"/>
                 <RadioButton
                     android:drawableTop="@drawable/good"
                     style="@style/user_pager_up_bottom"
@@ -116,8 +117,8 @@
             <RadioButton
                 android:id="@+id/my_release"
                 style="@style/user_pager_bottom"
-                android:drawableLeft="@drawable/user_release"
-                android:text="我的发布" />
+                android:drawableLeft="@drawable/ic_judge"
+                android:text="申请审批" />
             <!-- 分界线 -->
             <ImageView
                 android:layout_width="match_parent"

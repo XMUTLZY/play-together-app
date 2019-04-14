@@ -23,10 +23,10 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:button">@null</item>
-        <item name="android:paddingLeft">25dp</item>
-        <item name="android:textSize">20dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textSize">18dp</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:gravity">center</item>
     </style>
     <!-- 模块“我的”上部的底部公共样式 -->
     <style name="user_pager_up_bottom">
@@ -37,18 +37,20 @@
         <item name="android:gravity">center</item>
         <item name="android:textSize">14dp</item>
         <item name="android:textStyle">italic</item>
+        <item name="android:drawablePadding">10dp</item>
         <item name="android:layout_marginTop">14dp</item>
     </style>
     <!-- 模块“我的”下部公共样式 -->
     <style name="user_pager_bottom">
         <item name="android:layout_weight">1</item>
-        <item name="android:layout_gravity">left</item>
+        <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:textStyle">italic</item>
         <item name="android:textSize">18dp</item>
-        <item name="android:layout_marginTop">14dp</item>
+        <item name="android:drawablePadding">20dp</item>
+        <item name="android:layout_marginTop">10dp</item>
     </style>
     <!-- 模块“首页”下部标题样式 -->
     <style name="home_pager_title">

@@ -73,8 +73,9 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:drawableLeft="@drawable/user_release"
+                    android:drawableLeft="@drawable/title"
                     android:gravity="center_vertical"
+                    android:drawablePadding="10dp"
                     android:paddingLeft="10dp"
                     android:text="标题"
                     android:textSize="22sp"

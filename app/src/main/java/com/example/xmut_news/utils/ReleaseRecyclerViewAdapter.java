@@ -1,6 +1,8 @@
 package com.example.xmut_news.utils;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -71,34 +73,65 @@ public class ReleaseRecyclerViewAdapter extends RecyclerView.Adapter<ReleaseRecy
             btn_agree.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //同意按钮监听
-                    RequestParams params = new RequestParams();
-                    params.put("state","通过");
-                    params.put("release_title",datas.get(getLayoutPosition()).getRelease_title());
-                    //提交审核信息
-                    addJoin(params);
-                    //设置按钮样式
-                    btn_agree.setEnabled(false);
-                    btn_agree.setBackgroundColor(Color.parseColor("#22000000"));
-                    btn_reject.setEnabled(false);
-                    btn_reject.setBackgroundColor(Color.parseColor("#22000000"));
-                }
+                    new AlertDialog.Builder(context)
+                            .setTitle("提示")
+                            .setMessage("确定要同意该申请吗？")
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    //同意按钮监听
+                                    RequestParams params = new RequestParams();
+                                    params.put("state","通过");
+                                    params.put("release_title",datas.get(getLayoutPosition()).getRelease_title());
+                                    //提交审核信息
+                                    addJoin(params);
+                                    //设置按钮样式
+                                    btn_agree.setEnabled(false);
+                                    btn_agree.setBackgroundColor(Color.parseColor("#22000000"));
+                                    btn_reject.setEnabled(false);
+                                    btn_reject.setBackgroundColor(Color.parseColor("#22000000"));
+                                }
+                            })
+                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
 
+                                }
+                            })
+                            .setCancelable(false)
+                            .show();
+                }
             });
             btn_reject.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    //同意按钮监听
-                    RequestParams params = new RequestParams();
-                    params.put("state","未通过");
-                    params.put("release_title",datas.get(getLayoutPosition()).getRelease_title());
-                    //提交审核信息
-                    addJoin(params);
-                    //设置按钮样式
-                    btn_agree.setEnabled(false);
-                    btn_agree.setBackgroundColor(Color.parseColor("#22000000"));
-                    btn_reject.setEnabled(false);
-                    btn_reject.setBackgroundColor(Color.parseColor("#22000000"));
+                    new AlertDialog.Builder(context)
+                            .setTitle("提示")
+                            .setMessage("确定拒绝该申请吗？")
+                            .setPositiveButton("确定", new DialogInterface.OnClickListener(){
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            //同意按钮监听
+                                            RequestParams params = new RequestParams();
+                                            params.put("state","未通过");
+                                            params.put("release_title",datas.get(getLayoutPosition()).getRelease_title());
+                                            //提交审核信息
+                                            addJoin(params);
+                                            //设置按钮样式
+                                            btn_agree.setEnabled(false);
+                                            btn_agree.setBackgroundColor(Color.parseColor("#22000000"));
+                                            btn_reject.setEnabled(false);
+                                            btn_reject.setBackgroundColor(Color.parseColor("#22000000"));
+                                        }
+                                    })
+                            .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
+                                }
+                            })
+                            .setCancelable(false)
+                            .show();
                 }
             });
 

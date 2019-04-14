@@ -75,6 +75,7 @@ public class ContextFragment extends BaseFragment {
 
             @Override
             public void onPageSelected(int i) {
+
                 switch (i){
                     case 0:
                         radio_group.check(R.id.radio_group_button1);
@@ -99,6 +100,26 @@ public class ContextFragment extends BaseFragment {
 
             }
         });
+        //实例化发布按钮并监听
+        Button addbtn = context.findViewById(R.id.radio_group_button3);
+        addbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //判断用户是否已经登录
+                //查看本地是否用用于的登录信息
+                SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+                phone = sp.getString("phone","");
+                if(TextUtils.isEmpty(phone)){
+                    //本地没有保存过用户信息，给出提示：登录操作
+                    doLogin();
+                }else{
+                    //获取用户数据
+                    User user = getUser();
+                    pagerList.get(4).getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.GONE);
+                    click();
+                }
+            }
+        });
         //按钮点击监听器
         radio_group.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -112,21 +133,6 @@ public class ContextFragment extends BaseFragment {
                         view_pager.setCurrentItem(1,false);
                         //判断用户是否已经登录
                         isLogin();
-                        break;
-                    case R.id.radio_group_button3:
-                        //判断用户是否已经登录
-                        //查看本地是否用用于的登录信息
-                        SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
-                        phone = sp.getString("phone","");
-                        if(TextUtils.isEmpty(phone)){
-                            //本地没有保存过用户信息，给出提示：登录操作
-                            doLogin();
-                        }else{
-                            //获取用户数据
-                            User user = getUser();
-                            pagerList.get(4).getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.GONE);
-                            click();
-                        }
                         break;
                     case R.id.radio_group_button4:
                         view_pager.setCurrentItem(3,false);
@@ -198,6 +204,12 @@ public class ContextFragment extends BaseFragment {
                     public void onClick(DialogInterface dialog,int which) {
                         Intent intent = new Intent(getActivity(),LoginActivity.class);
                         startActivity(intent);
+                    }
+                })
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
                     }
                 })
                 .setCancelable(false)

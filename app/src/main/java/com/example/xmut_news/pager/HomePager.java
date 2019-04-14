@@ -44,7 +44,6 @@ public class HomePager extends BasePager implements OnBannerListener {
         radioGroup.check(R.id.title_button1);
         initData1();
         initView1();
-        getUserJoinAll();
     }
 
     @Override
@@ -119,26 +118,6 @@ public class HomePager extends BasePager implements OnBannerListener {
             @Override
             public void onFailure(Throwable throwable, String s) {
                 Toast.makeText(context, "数据请求异常", Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    private void getUserJoinAll() {
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.post(context, url2, null, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(String s) {
-                Log.i("test", s);
-                //把获取到的json串存入
-                SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
-                SharedPreferences.Editor editor = sp.edit();
-                editor.putString("jsonList", s);
-                editor.apply();
-            }
-
-            @Override
-            public void onFailure(Throwable throwable, String s) {
-
             }
         });
     }
