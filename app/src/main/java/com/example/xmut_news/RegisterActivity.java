@@ -2,6 +2,7 @@ package com.example.xmut_news;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import java.util.Properties;
+import java.util.Random;
 
 /*
 * 用户注册界面
@@ -26,13 +28,14 @@ import java.util.Properties;
 public class RegisterActivity extends BaseActivity {
 
     RequestParams params;//存放请求数据
-    private String phone,password,password2,sex,school,name,major;
-    //注册请求发送地址
-    //private String url = "http://www.myweb-api.work:8080/android_PlayAround_ssm/addUser";//阿里云服务器
+    private String phone,make,password,password2,sex,school,name,major,url2 = "http://utf8.api.smschinese.cn/";
     private String url;//本地
     private String url1;
+    private String code;
     @ViewInject(R.id.et_user_name)
     private EditText et_user_name;
+    @ViewInject(R.id.et_make)
+    private EditText et_make;
     @ViewInject(R.id.et_psw)
     private EditText et_psw;
     @ViewInject(R.id.et_psw_again)
@@ -51,6 +54,8 @@ public class RegisterActivity extends BaseActivity {
     private EditText et_user_school;
     @ViewInject(R.id.btn_register)
     private Button btn_register;
+    @ViewInject(R.id.btn_send)
+    private Button btn_send;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +65,49 @@ public class RegisterActivity extends BaseActivity {
         url1 = properties.getProperty("serverUrl");
         url = url1 + "addUser";
         x.view().inject(RegisterActivity.this);
+        //发送验证码监听
+        btn_send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //随机生成验证码数据
+                int t = (int)(1000+Math.random()*(9999-1+1));
+                code = Integer.toString(t);
+                Log.i("code", code+"");
+                //存放数据 调用sms短信api
+                RequestParams params1 = new RequestParams();
+                String phone = et_user_name.getText().toString().trim();
+                params1.put("Uid","2410267884@qq.com");
+                params1.put("Key","d41d8cd98f00b204e980");
+                params1.put("smsText","验证码:"+code);
+                params1.put("smsMob",phone);
+                //发送数据请求到指定api
+                AsyncHttpClient client = new AsyncHttpClient();
+                client.post(RegisterActivity.this,url2,params1,new AsyncHttpResponseHandler(){
+                    @Override
+                    public void onSuccess(String s) {
+                        if(s.equals("1")){
+                            Toast.makeText(RegisterActivity.this, "验证码已发送", Toast.LENGTH_SHORT).show();
+                        }
+                        if(s.equals("-4")){
+                            Toast.makeText(RegisterActivity.this, "手机号格式不正确", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Throwable throwable, String s) {
+
+                    }
+                });
+            }
+        });
+        //注册按钮监听
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 params = new RequestParams();
                 //获取用户注册信息
+                make = et_make.getText().toString().trim();
+                Log.i("make", make);
                 phone = et_user_name.getText().toString().trim();
                 password = et_psw.getText().toString().trim();
                 password2 = et_psw_again.getText().toString().trim();
@@ -77,6 +120,9 @@ public class RegisterActivity extends BaseActivity {
                 }
                 else if(!password.equals(password2)){
                     Toast.makeText(RegisterActivity.this, "两次输入密码不一致", Toast.LENGTH_SHORT).show();
+                }
+                else if(!make.equals(code)){
+                    Toast.makeText(RegisterActivity.this, "短信验证码填写错误", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     params.put("phone",phone);

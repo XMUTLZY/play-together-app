@@ -17,6 +17,7 @@ import com.example.xmut_news.base.BasePager;
 import com.example.xmut_news.pojo.User;
 
 public class UserPager extends BasePager {
+    private Button logout;
     public UserPager(Context context) {
         super(context);
     }
@@ -54,8 +55,13 @@ public class UserPager extends BasePager {
             }
         });
         initData();
+        //查看是否有数据
+        logout = getRootView().findViewById(R.id.logout);
+        SharedPreferences sp = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
+        if(sp.getString("phone","").isEmpty()){
+                logout.setEnabled(false);
+        }
         //退出登录
-        Button logout = getRootView().findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +78,13 @@ public class UserPager extends BasePager {
                                 getRootView().findViewById(R.id.user_pager_under_under).setVisibility(View.VISIBLE);
                                 //3、设置头像和手机号隐藏
                                 getRootView().findViewById(R.id.user_pager_hide).setVisibility(View.GONE);
+                                logout.setEnabled(false);
+                            }
+                        })
+                        .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
                             }
                         })
                         .setCancelable(false)
